@@ -23,7 +23,7 @@ const Update = () => {
 
       console.log(response.data);
     } catch (error) {
-      console.log(error);
+      console.log(error.message);
     }
 
   };
@@ -59,8 +59,18 @@ const Update = () => {
     useEffect (()=>{
       fetchData(id);
     },[]);
-    
 
+    const deleteData = async(e)=>{
+      e.preventDefault();
+      try {
+        const response = await axios.delete(`http://localhost:8000/api/hosting/${id}`)
+      } catch (error) {
+        console.log(error.message);
+      }
+    }
+
+
+   
 
 
   return (
@@ -75,8 +85,10 @@ const Update = () => {
           <label>password:</label>
           <input type="Password" id="password" on onChange={passwordFunction} />
           <br/>
-          <button type="submit">Submit</button>
-          <Link to='/details'>view</Link>
+          <div style={{display:'flex',textAlign:"center",gap:"1rem",padding:"20px"}}>  
+            <button type="submit">Submit</button>
+            <Link to='/details'><button>View form</button></Link>
+          </div>
       </form>
     </div>
   );

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom"
+import './style.css';
 
 const Form = () => {
 
@@ -21,6 +22,7 @@ const Form = () => {
       })
 
       console.log(response.data);
+      alert('data submitted successfully')
     } catch (error) {
       console.log(error);
     }
@@ -46,20 +48,26 @@ const Form = () => {
 
 
   return (
-    <div>
-      <form onSubmit={onSubmitAll}>
-          <label>Name:</label>
-          <input type="text" id="name" onChange={nameFunction} />
-        <br />
-          <label>Email:</label>
-          <input type="email" id="email" onChange={emailFunction}/>
-        <br />
-          <label>password:</label>
-          <input type="Password" id="password" on onChange={passwordFunction} />
-          <br/>
-          <button type="submit">Submit</button>
-          <Link to='/details'>view</Link>
-      </form>
+    <div style={{textAlign:"center",marginTop:"10rem"}}>
+      <h1>Register</h1>
+          <form onSubmit={onSubmitAll}>
+            <div>
+              <input type="text" id="name" onChange={nameFunction} placeholder="Name" />
+            </div>
+            <br />
+            <div>
+              <input type="email" id="email" onChange={emailFunction} placeholder="email"/>
+            </div>
+            <br />
+            <div>
+              <input type="Password" id="password" on onChange={passwordFunction} placeholder="password" />
+            </div>
+              <br/>
+              <div style={{display:'flex',textAlign:"center",gap:"1rem",justifyContent:"center"}}>
+                  <button type="submit">Submit</button>
+                  <Link to='/details'><button>View forms</button></Link>
+              </div>
+          </form>
     </div>
   );
 };

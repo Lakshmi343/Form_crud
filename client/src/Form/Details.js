@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Card from '../Form/Card';
+import axios from 'axios';
 
 
 function Details() {
@@ -12,7 +13,22 @@ function Details() {
       setDetails(toConvertJSON);
       console.log(toConvertJSON);
     }
+
+   
+
+    const deleteData = async(id)=>{
+      // id.preventDefault();
+      try {
+       await axios.delete(`http://localhost:8000/api/hosting/${id}`);
+       fetchDataServer();
+      } catch (error) {
+        console.log(error.message);
+      }
+    }
   
+    // const fun = (id)=>{
+    //   deleteData(id)
+    // }
     useEffect(() =>{
       fetchDataServer();
     },[]);
@@ -23,7 +39,7 @@ function Details() {
           details.map((item) => {
             return(
               <>
-              <Card data={item}/>
+              <Card data={item} demo={deleteData}   />
               </>
             )
           })

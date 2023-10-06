@@ -13,7 +13,7 @@ root.render(
         <BrowserRouter>
         <Routes>
             <Route path='/' element={<Form/>} />
-            <Route path='/Details' element={<Details />} />
+            <Route path='/details' element={<Details />} />
             <Route path='/update/:id' element={<Update />} />
         </Routes>
         </BrowserRouter>
