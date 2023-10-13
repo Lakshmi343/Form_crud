@@ -50,6 +50,17 @@ app.delete('/api/hosting/:id', (req,res)=>{
 })
 
 
+app.get("/api/hosting/:id", async(req,res) =>{
+    const {id} = req.params;
+    try {
+        const getId = await User.findById(id);
+        res.json(getId);
+    } catch (error) {
+        console.log(error.message);
+    }
+})
+
+
 
 
 

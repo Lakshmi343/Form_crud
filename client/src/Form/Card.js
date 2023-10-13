@@ -14,10 +14,10 @@ function BasicExample({data,demo}) {
 
 
   return (
-    <Card style={{ width: '18rem' }}>
+    <Card style={{ width: '25rem',gap:'10px' }}>
       <Card.Body>
-        <Card.Title>Register</Card.Title>
-        <Card.Text>
+        <Card.Title style={{textAlign:'center'}}>Register</Card.Title>
+        <Card.Text style={{textAlign:'center'}}>
           <p>name:{name}</p>
           <p>email:{email}</p>
           <p>password:{password}</p>

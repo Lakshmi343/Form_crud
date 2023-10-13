@@ -8,7 +8,7 @@ function Details() {
  
 
     const fetchDataServer = async() => {
-      let response = await fetch(`http://localhost:8000/api/hosting`)
+      let response = await fetch(`http://localhost:8001/api/hosting`)
       let toConvertJSON = await response.json();
       setDetails(toConvertJSON);
       console.log(toConvertJSON);
@@ -19,7 +19,7 @@ function Details() {
     const deleteData = async(id)=>{
       // id.preventDefault();
       try {
-       await axios.delete(`http://localhost:8000/api/hosting/${id}`);
+       await axios.delete(`http://localhost:8001/api/hosting/${id}`);
        fetchDataServer();
       } catch (error) {
         console.log(error.message);

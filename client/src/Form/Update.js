@@ -15,7 +15,7 @@ const Update = () => {
    
 
     try {
-      const response  = await axios.put(`http://localhost:8000/api/hosting/${id}`,{
+      const response  = await axios.put(`http://localhost:8001/api/hosting/${id}`,{
           name:name,
           email:email,
           password:password,
@@ -45,7 +45,7 @@ const Update = () => {
 
     const fetchData= async(id)=>{
         try {
-            let response = await axios.get(`http://localhost:8000/api/hosting/${id}`);
+            let response = await axios.get(`http://localhost:8001/api/hosting/${id}`);
             console.log(response.data);
             setName(response.data.name);
             console.log(setName,'nsnfknsd');
@@ -63,7 +63,7 @@ const Update = () => {
     const deleteData = async(e)=>{
       e.preventDefault();
       try {
-        const response = await axios.delete(`http://localhost:8000/api/hosting/${id}`)
+        const response = await axios.delete(`http://localhost:8001/api/hosting/${id}`)
       } catch (error) {
         console.log(error.message);
       }
@@ -74,18 +74,19 @@ const Update = () => {
 
 
   return (
-    <div>
-      <form onSubmit={onSubmitAll}>
-          <label>Name:</label>
-          <input type="text" id="name" onChange={nameFunction} />
+    <div style={{textAlign:"center",marginTop:"10rem",gap:'20px'}}>
+      <h1>Edit form </h1>
+      <form onSubmit={onSubmitAll} >
+          <label >Name:</label>
+          <input type="text" id="name" value={name} onChange={nameFunction}  style={{marginLeft:'20px'}}/>
         <br />
           <label>Email:</label>
-          <input type="email" id="email" onChange={emailFunction}/>
+          <input type="email" id="email" value={email} onChang={emailFunction} style={{marginLeft:'20px'}}/>
         <br />
           <label>password:</label>
-          <input type="Password" id="password" on onChange={passwordFunction} />
-          <br/>
-          <div style={{display:'flex',textAlign:"center",gap:"1rem",padding:"20px"}}>  
+          <input type="Password" id="password" value={password}  onChange={passwordFunction}  style={{marginLeft:'0px'}}/>
+          <br/>padding
+          <div style={{display:'flex',textAlign:"center",gap:"1rem",padding:"20px",alignItems:'center',marginLeft:'680px'}}>  
             <button type="submit">Submit</button>
             <Link to='/details'><button>View form</button></Link>
           </div>

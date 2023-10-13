@@ -14,7 +14,7 @@ const Form = () => {
    
 
     try {
-      const response  = await axios.post("http://localhost:8000/api/hosting",{
+      const response  = await axios.post("http://localhost:8001/api/hosting",{
           name:name,
           email:email,
           password:password,
@@ -52,7 +52,7 @@ const Form = () => {
       <h1>Register</h1>
           <form onSubmit={onSubmitAll}>
             <div>
-              <input type="text" id="name" onChange={nameFunction} placeholder="Name" />
+              <input type="text" id="name" onChange={nameFunction} placeholder="Name"  />
             </div>
             <br />
             <div>
@@ -74,49 +74,3 @@ const Form = () => {
 
 export default Form;
 
-// import React, {useEffect, useState} from 'react'
-
-// function Form() {
-
-//     const [ inputValue, setInputValue] = useState('');
-//     const [ password, setPassword] = useState('');
-//     const [ email, setEmail] = useState('');
-
-//     const [message, setMessage] = useState([]);
-
-//     const fetchDataServer = async() => {
-//         let response = await fetch(`http://localhost:8000/api/message`)
-//         let toConvertJSON = await response.json();
-//         setMessage(toConvertJSON);
-//         console.log(toConvertJSON);
-//       }
-
-//       useEffect(() => {
-//         fetchDataServer();
-//       },[]);
-
-//   return (
-//     <>
-//     <div>
-//         <form>
-//             <div>
-//                 <input type='text' placeholder='Username' value={inputValue}/>
-//             </div>
-
-//             <div>
-//                 <input type='password' placeholder='Password' value={password}/>
-//             </div>
-
-//             <div>
-//                 <input type='email' placeholder='Email' value={email}/>
-//             </div>
-
-//             <button onClick={message}>Submit</button>
-//         </form>
-
-//     </div>
-//     </>
-//   )
-// }
-
-// export default Form
